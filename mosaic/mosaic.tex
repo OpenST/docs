@@ -473,7 +473,7 @@ By means of a Merkle proof against that known state root, the content of the Ker
 Auxiliary will note the update of the validator weights for the meta-block height of the opened meta-block plus one.
 The validator set changes on auxiliary at the time the kernel opening is confirmed.
 Even though the kernel opening retroactively opens the meta-block on auxiliary from the first block after the last finalized checkpoint in the meta-block that precedes the opening one, the validator set only changes at the point of the confirmation.
-When the Kernel at height $i$ is confirmed on auxiliary, the validator set $i+1$ becomes the active set of validators.
+When the Kernel at height $i$ is confirmed on auxiliary, the validator set $\mathcal{V}_{\mathcal{B}_i}$ becomes the active set of validators.
 The validators that logged out on origin before the opening of $K_i$ will be in the rear validator set of $K_{i+1}$ and leave the validator set when $K_{i+2}$ is confirmed.
 
 \begin{figure}[htb]
