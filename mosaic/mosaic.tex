@@ -222,8 +222,11 @@ The incentive structure is now reversed and the origin blockchain is in no way i
 
 In case the origin blockchain is probabilistically finalized, then it is always possible that the Mosaic validators of a given meta-blockchain running on top of the origin blockchain would economically finalize an observation of origin on the auxiliary system which is (later) reverted by the origin blockchain - even if they sufficiently trailed the head of origin.
 Note that the validators cannot revert their finalized observation, because they would be required to sign vote messages which would violate the slashing conditions.
+Also note that, in normal operation, the probability of this happening can be made very small.
+It is a matter of balancing safety and usability.
 
-Under this scenario we must force the meta-blockchain to halt at the highest finalized checkpoint of the auxiliary system which was still consistent with its observation of the (now reverted) history of the origin blockchain.
+Under the unlikely scenario that origin reverts history, the meta-blockchain must be forced to halt.
+It should halt at the highest finalized checkpoint of the auxiliary system which was still consistent with its observation of the (now reverted) history of the origin blockchain.
 This property can be enforced by including in the transition object of a justified chain of the auxiliary system $T^A$ information about the finalization of the observation of the origin blockchain $T^O$,
 \begin{align*}
   T^A_i = (O^j_f, \dots),
