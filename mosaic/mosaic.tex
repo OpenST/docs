@@ -226,7 +226,7 @@ Also note that, in normal operation, the probability of this happening can be ma
 It is a matter of balancing safety and usability.
 
 Under the unlikely scenario that origin reverts history, the meta-blockchain must be forced to halt.
-It should halt at the highest finalized checkpoint of the auxiliary system which was still consistent with its observation of the (now reverted) history of the origin blockchain.
+It should halt at the highest finalized checkpoint of the auxiliary system which was still consistent with its observation of the history of the origin blockchain before the revision.
 This property can be enforced by including in the transition object of a justified chain of the auxiliary system $T^A$ information about the finalization of the observation of the origin blockchain $T^O$,
 \begin{align*}
   T^A_i = (O^j_f, \dots),
