@@ -369,7 +369,7 @@ Changes to the validator weights $w_v(n)$ are included in the kernel $K_n$ as $\
   W_v(n) = w_v(n) \cdot \theta_v
 \end{align*}
 where $\theta_v$ is initially 1 for all validators, but irreversibly and immediately set to 0 when a validator $v$ is shown to have violated any slashing condition.
-The effective weight allows for the voting power of an offending validator to be revoked on both blockchains instantaneously without waiting for the meta-block to be committed.
+The effective weight allows for the voting power of an offending validator to be revoked on both blockchains instantaneously without waiting for the meta-block to be committed or the Kernel to be confirmed.
 
 The stake $s_v(n)$ of a validator can only be preserved or decrease for increasing $n$ when the validator does not fulfill its responsibilities.
 The \emph{loss function} $L$ recalculates the stake of a validator for the new meta-block height
