@@ -212,6 +212,9 @@ The origin blockchain can inspect $T^A$ to assert that the highest finalized obs
 Should this not be the case, then the origin blockchain must reject meta-blocks containing contradictory observations.
 
 However, origin cannot directly assert that prior to the last finalized observation, there was no checkpoint finalized from a contradictory branch of its history, as the nodes on origin should not fully verify the transactions executed on the auxiliary system.
+Similarly, auxiliary should not fully verify origin.
+In an effort to correct a mistake, it could happen that validators propose and finalize origin checkpoints of different branches on auxiliary.
+Auxiliary is not aware of the history or block hashes of origin in between checkpoints.
 This is resolved by introducing an option to challenge a proposed finalized observation.
 
 Assume an observed checkpoint $a$ was finalized on a contradictory branch of origin relative to the last finalized observed checkpoint $b$ included in $T^A$.
