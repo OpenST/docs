@@ -204,9 +204,9 @@ Note that the validators cannot revert their finalized observation, because they
 Under this scenario we must force the meta-blockchain to halt at the highest finalized checkpoint of the auxiliary system which was still consistent with its observation of the (now reverted) history of the origin blockchain.
 This property can be enforced by including in the transition object of a justified chain of the auxiliary system $T^A$ information about the finalization of the observation of the origin blockchain $T^O$,
 \begin{align*}
-  T^A_i = (O^j_f, \dots),
+  T^A_i = (O^{j_i}_f, \dots),
 \end{align*}
-where $O^j_f = f(T^O)$ is the function that returns the highest finalized block number $j$ and blockhash of the origin system as observed by the Mosaic validators for this meta-blockchain.
+where $O^{j_i}_f = f(T^O)$ is the function that returns the highest finalized block number $j$ and blockhash of the origin system as observed by the Mosaic validators for this meta-blockchain.
 
 The origin blockchain can inspect $T^A$ to assert that the highest finalized observation of itself on the auxiliary system is within its current history.
 Should this not be the case, then the origin blockchain must reject meta-blocks containing contradictory observations.
@@ -224,7 +224,7 @@ Upon success, the challenger is rewarded from the stake of the offending validat
 
 We construct a transition object $T^A$ to coarse-grain a vast amount of transactions processed on the auxiliary system under the state transition rules $t_A$ into a single, abstracted state transition that can be validated by the core contract on the origin blockchain (under the state transition rules of the origin blockchain $t_O$, eq. \ref{state_transition_rules}).
 
-On the auxiliary chain with every block running parameters are tracked and these consist of the latest finalized observation of the origin blockchain $O^j_f= f(T^O)$, the \emph{accumulated transaction root} $r_i$, the \emph{accumulated gas} $g_i$ consumed, and the current \emph{dynasty number} $d$ on auxiliary.
+On the auxiliary chain with every block running parameters are tracked and these consist of the latest finalized observation of the origin blockchain $O^{j_i}_f= f(T^O)$, the \emph{accumulated transaction root} $r_i$, the \emph{accumulated gas} $g_i$ consumed, and the current \emph{dynasty number} $d$ on auxiliary.
 The transition object $T^A$, however, is updated at every justified checkpoint $s$ with height $h_s$ and we write for a given meta-block height $n$:
 \begin{align*}
   T^A_{n,d}(s) = (d, O^{j_d}_f, r_d, g_d, \tilde{K}_n)
